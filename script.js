@@ -6,10 +6,10 @@ audioBtn.addEventListener("click", () => {
   if (audio.paused) {
     audio.volume = 0.3;
     audio.play();
-    audioBtn.textContent = "🌲 ambience: on";
+    audioBtn.textContent = " ambience: on";
   } else {
     audio.pause();
-    audioBtn.textContent = "🌲 ambience: off";
+    audioBtn.textContent = " ambience: off";
   }
 });
 
@@ -33,8 +33,7 @@ document.querySelectorAll(".collapse-toggle").forEach(btn => {
 });
 
 /* ---------- Twitch Live Detection ---------- */
-/* REPLACE WITH YOUR TWITCH USERNAME */
-fetch("https://decapi.me/twitch/uptime/YOUR_TWITCH_NAME")
+fetch("https://decapi.me/twitch/uptime/rhowyen")
   .then(res => res.text())
   .then(text => {
     const status = document.querySelector(".status");
@@ -69,4 +68,37 @@ document.addEventListener("mousemove", e => {
 
   setTimeout(() => sparkle.remove(), 800);
 });
+
+/* ---------- Discord Widget Toggle (Mobile) ---------- */
+const discordToggle = document.querySelector(".discord-toggle");
+const discordWidget = document.querySelector(".discord-widget");
+
+discordToggle.addEventListener("click", () => {
+  discordWidget.classList.toggle("open");
+
+  discordToggle.textContent = discordWidget.classList.contains("open")
+    ? " Hide Community"
+    : " Join the Community";
+});
+
+/* ---------- Sync Discord Theme With Site Theme ---------- */
+const discordIframe = document.getElementById("discord-iframe");
+
+function updateDiscordTheme() {
+  const theme = document.documentElement.dataset.theme === "day"
+    ? "light"
+    : "dark";
+
+  const baseSrc = "https://discord.com/widget?id=1219428215546712117";
+  discordIframe.src = `${baseSrc}&theme=${theme}`;
+}
+
+
+updateDiscordTheme();
+
+
+themeBtn.addEventListener("click", () => {
+  setTimeout(updateDiscordTheme, 50);
+});
+
 /* ---------- End of Script ---------- */
