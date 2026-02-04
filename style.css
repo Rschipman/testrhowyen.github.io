@@ -1,3 +1,18 @@
+/* ---------- Theme Variables ---------- */
+:root {
+  --bg: #1e2a1e;
+  --box: #2c3b2c;
+  --accent: #3b4b2f;
+  --text: #e6efe6;
+}
+
+[data-theme="day"] {
+  --bg: #e8f1e8;
+  --box: #ffffff;
+  --accent: #d2e6d2;
+  --text: #2b3b2b;
+}
+
 /* ---------- Base ---------- */
 * {
   box-sizing: border-box;
@@ -5,24 +20,21 @@
 
 body {
   margin: 0;
-  background: #1e2a1e;
-  color: #e6efe6;
+  background: var(--bg);
+  color: var(--text);
   font-family: 'Inter', sans-serif;
   line-height: 1.5;
-}
-
-a {
-  color: #c7f2c7;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+  cursor: url("assets/images/leaf-cursor.png"), auto;
 }
 
 h1, h2 {
   font-family: 'IM Fell English', serif;
   margin-top: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 /* ---------- Layout ---------- */
@@ -41,41 +53,38 @@ h1, h2 {
 }
 
 .box {
-  background: #2c3b2c;
+  background: var(--box);
   border-radius: 14px;
   padding: 1rem;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
 /* ---------- Profile ---------- */
 .profile img {
   width: 100%;
   border-radius: 12px;
-  margin-bottom: 0.5rem;
 }
 
+/* ---------- Status ---------- */
 .status {
   display: inline-block;
   padding: 0.3rem 0.6rem;
   border-radius: 999px;
   font-size: 0.85rem;
-  margin-top: 0.5rem;
 }
 
 .status[data-live="true"] {
   background: #3d6b3d;
-  color: #d9ffd9;
 }
 
 .status[data-live="false"] {
   background: #444;
-  color: #bbb;
 }
 
 /* ---------- Links ---------- */
 .links a {
   display: block;
-  background: #3b4b2f;
+  background: var(--accent);
   padding: 0.6rem;
   border-radius: 10px;
   margin-bottom: 0.5rem;
@@ -83,56 +92,52 @@ h1, h2 {
   font-weight: 600;
 }
 
-/* ---------- Collapsible ---------- */
-.collapse-toggle {
-  background: none;
-  border: none;
-  color: #e6efe6;
-  font-family: inherit;
-  font-size: 1.1rem;
-  cursor: pointer;
-}
-
-.collapse-content {
-  display: none;
-  margin-top: 0.5rem;
-}
-
-/* ---------- Guestbook ---------- */
-.guestbook {
-  font-family: monospace;
-  background: #243324;
-}
-
-/* ---------- Schedule ---------- */
-.schedule ul {
-  padding-left: 1rem;
+/* ---------- Offline Banner ---------- */
+#offline-banner {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
 }
 
 /* ---------- Pinned Note ---------- */
 .note {
-  background: #3b4b2f;
+  background: var(--accent);
   transform: rotate(-1deg);
   padding: 1rem;
   border-radius: 8px;
   margin-bottom: 1rem;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.35);
 }
 
-/* ---------- Audio Toggle ---------- */
-#audio-toggle {
+/* ---------- Floating Buttons ---------- */
+#audio-toggle,
+#theme-toggle {
   position: fixed;
   bottom: 1rem;
-  right: 1rem;
-  background: #3b4b2f;
+  background: var(--accent);
   border: none;
-  color: #e6efe6;
   padding: 0.6rem 1rem;
   border-radius: 999px;
   cursor: pointer;
   z-index: 1000;
 }
 
-#audio-toggle:hover {
-  background: #4c5d3f;
+#audio-toggle {
+  right: 1rem;
+}
+
+#theme-toggle {
+  right: 9rem;
+}
+
+/* ---------- Sparkles ---------- */
+.sparkle {
+  position: fixed;
+  pointer-events: none;
+  font-size: 12px;
+  opacity: 0.8;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.sparkle.fade-out {
+  opacity: 0;
+  transform: scale(0.5);
 }

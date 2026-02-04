@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="night">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rhowyen </title>
+  <title>🌲 Cozy Forest Streamer</title>
 
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -16,24 +16,31 @@
 <body>
 
   <!-- Ambient Audio -->
-  <audio id="forest-audio" loop>
-    <source src="/audio/As You Prevent Do - pATCHES.mp3" type="audio/mpeg">
+  <audio id="forest-audio" loop preload="none">
+    <source src="assets/audio/forest.mp3" type="audio/mpeg">
   </audio>
 
+  <!-- Floating Controls -->
   <button id="audio-toggle">🌲 ambience: off</button>
+  <button id="theme-toggle">🌙 night mode</button>
 
   <div class="page">
 
-    <!-- Profile -->
+    <!-- Profile Column -->
     <aside class="profile box">
-      <img src="/pics/dripclown.webp" alt="Your avatar">
+      <img src="assets/images/avatar.webp" alt="Your avatar">
       <h1>Your Name</h1>
-      <p>cozy chaotic forest gremlin streamer and part time clown🌿</p>
+      <p>cozy forest gremlin streamer 🌿</p>
       <p class="status" data-live="false">🌙 Offline</p>
     </aside>
 
     <!-- Main Content -->
     <main class="content box">
+
+      <img
+        id="offline-banner"
+        src="assets/images/offline-banner.png"
+        alt="Offline banner">
 
       <div class="note">
         ✨ Cozy stream tonight — bring tea & good vibes
@@ -44,7 +51,7 @@
         <div class="collapse-content">
           <p>
             Hi! I’m a cozy streamer who loves chill games,
-            late-night rambling, and forest vibes 🍄
+            forest aesthetics, lore rambles, and hanging out 🍄
           </p>
         </div>
       </section>
@@ -59,20 +66,20 @@
 
       <section class="guestbook box">
         <h2>🐸 Guestbook</h2>
-        <p><strong>LeafLover99:</strong> immaculate vibes</p>
-        <p><strong>MossWizard:</strong> this site healed me</p>
+        <p><strong>MossWizard:</strong> unmatched vibes</p>
+        <p><strong>LeafLover99:</strong> i never want to leave</p>
       </section>
 
     </main>
 
-    <!-- Schedule -->
+    <!-- Schedule Column -->
     <aside class="schedule box">
       <h2>📅 Schedule</h2>
-      <!-- <ul>
+      <ul>
         <li>Mon — 8pm</li>
         <li>Wed — 9pm</li>
         <li>Sat — 6pm</li>
-      </ul> -->
+      </ul>
       <p><em>Timezone: EST</em></p>
     </aside>
 
