@@ -1,2 +1,2 @@
 # rhowyen.github.io 
-Rhowyen on Twitch, youtube, upscrolled, threads,kofi, throne, etc
+Rhowyen on Twitch, youtube, upscrolled, threads,kofi, throne, etc.
