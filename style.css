@@ -66,19 +66,64 @@ a {
 }
 
 /* ---------- Status ---------- */
+/* ---- Stream Status Pill --- */
+
 .status {
   display: inline-block;
-  padding: 0.3rem 0.6rem;
+  margin-top: 0.5rem;
+  padding: 0.35rem 0.8rem;
   border-radius: 999px;
   font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* 🌙 OFFLINE — Night mode */
+html[data-theme="night"] .status[data-live="false"] {
+  background: rgba(40, 44, 40, 0.9);
+  color: #cfd8cf;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* 🌞 OFFLINE — Day mode */
+html[data-theme="day"] .status[data-live="false"] {
+  background: rgba(235, 240, 232, 0.95);
+  color: #2a332a;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+/* 🔴 LIVE — Night mode */
+html[data-theme="night"] .status[data-live="true"] {
+  background: linear-gradient(
+    135deg,
+    rgba(40, 90, 60, 0.95),
+    rgba(30, 65, 45, 0.95)
+  );
+  color: #eafff0;
+  border: 1px solid rgba(120, 255, 180, 0.5);
+  box-shadow:
+    0 0 10px rgba(120, 255, 180, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* 🔴 LIVE — Day mode */
+html[data-theme="day"] .status[data-live="true"] {
+  background: linear-gradient(
+    135deg,
+    #b9e6c8,
+    #9fd9b2
+  );
+  color: #16361f;
+  border: 1px solid #6fbf8e;
+  box-shadow: 0 0 6px rgba(80, 160, 120, 0.35);
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(120,255,180,0.25); }
+  50% { box-shadow: 0 0 14px rgba(120,255,180,0.45); }
 }
 
 .status[data-live="true"] {
-  background: #3d6b3d;
-}
-
-.status[data-live="false"] {
-  background: #444;
+  animation: glow 2.5s ease-in-out infinite;
 }
 
 /* ---------- Links ---------- */
@@ -203,3 +248,47 @@ a {
   }
 }
 
+/* ---------- Top 8 ---------- */
+.top8 {
+  margin-top: 1.2rem;
+}
+
+.top8 h2 {
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+.top8-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.top8-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 0.4rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.75rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.top8-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.25rem;
+}
+
+.top8-card span {
+  display: block;
+  opacity: 0.85;
+}
+
+/* hover = subtle MySpace flex */
+.top8-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
